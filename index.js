@@ -1,21 +1,20 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const userRoutes = require('./techmates-backend/routes/RouteUser'); 
-console.log("Before DB connection");
-require('./techmates-backend/config/db'); // database configuration
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import SignUp from './Signup';
+import SignIn from './Sign_In';
+import Navbar from './Nav_bar';
+import Home from './Home'
+import reportWebVitals from './reportWebVitals';
 
-const app = express();
-console.log("After DB connection");
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Navbar/>
+    <Home/>
+    <SignUp/>
+    <SignIn/>
+  </React.StrictMode>
+);
 
-app.use(express.json()); // Middleware 
-console.log("JSON Middleware added");
-
-app.use('/api/users', userRoutes); 
-console.log("User routes added");
-
-const PORT = process.env.PORT || 5001;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-console.log("After app.listen");
+reportWebVitals();
