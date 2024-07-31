@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
+
 function Home() {
   const [objects, setObjects] = useState([]);
 
@@ -13,8 +15,9 @@ function Home() {
   return (
     <div>
       <header>
+        
+        
         <h1>TechMates</h1>
-        <img src="./Techmates logo.png" alt="Team Logo" />
       </header>
       <ul>
         {objects.map(object => (
