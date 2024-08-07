@@ -1,0 +1,13 @@
+{
+  "name": "techmates-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^5.13.22"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

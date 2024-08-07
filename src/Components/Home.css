@@ -1,0 +1,38 @@
+/* src/components/Home.css */
+.home-container {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    color: #343a40;
+  }
+  
+  p {
+    color: #6c757d;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline;
+    margin: 0 10px;
+  }
+  
+  nav a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
