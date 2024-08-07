@@ -17,6 +17,7 @@ function SignUp() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Sign Up</h2>
       <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Username" />
       <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" />
       <button type="submit">Sign Up</button>

@@ -1,22 +1,15 @@
 {
   "name": "techmates-frontend",
   "version": "1.0.0",
-<<<<<<< HEAD
   "main": "index.js",
-=======
->>>>>>> 1d72fc53763495f38817be115744af57dd1efa7f
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-<<<<<<< HEAD
     "react-router-dom": "^5.2.0",
     "web-vitals": "^1.0.1",
-    "react-scripts": "latest"
-=======
     "react-scripts": "4.0.3"
->>>>>>> 1d72fc53763495f38817be115744af57dd1efa7f
   },
   "scripts": {
     "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
@@ -35,12 +28,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
   },
   "resolutions": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-=======
->>>>>>> 1d72fc53763495f38817be115744af57dd1efa7f
   }
 }
