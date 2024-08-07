@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 
@@ -49,8 +50,40 @@ function Home() {
           <li><Link to="/signin">Sign In</Link></li>
         </ul>
       </nav>
+=======
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+
+
+function Home() {
+  const [objects, setObjects] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/objects')
+      .then(response => setObjects(response.data))
+      .catch(error => console.error(error));
+  }, []);
+
+  return (
+    <div>
+      <header>
+        
+        
+        <h1>TechMates</h1>
+      </header>
+      <ul>
+        {objects.map(object => (
+          <li key={object.id}>{object.name}</li>
+        ))}
+      </ul>
+>>>>>>> 1d72fc53763495f38817be115744af57dd1efa7f
     </div>
   );
 }
 
+<<<<<<< HEAD
 export default Home;
+=======
+export default Home;
+>>>>>>> 1d72fc53763495f38817be115744af57dd1efa7f

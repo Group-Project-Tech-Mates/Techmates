@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // src/App.js
 import React from 'react';
 import './App.css';
@@ -27,6 +28,19 @@ function App() {
         </div>
       </div>
     </Router>
+=======
+
+
+import React from 'react';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Welcome to Techmates</h1>
+      </header>
+    </div>
+>>>>>>> 1d72fc53763495f38817be115744af57dd1efa7f
   );
 }
 

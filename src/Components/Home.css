@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* src/components/Home.css */
 .home-container {
     text-align: center;
@@ -35,4 +36,55 @@
   
   nav a:hover {
     text-decoration: underline;
+=======
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .home {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  header {
+    background-color: #007acc;
+    color: white;
+    padding: 20px;
+  }
+  
+  .logo {
+    max-width: 100px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    color: #007acc;
+  }
+  
+  .project-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .project-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-item h3 {
+    margin: 0;
+    color: #007acc;
+>>>>>>> 1d72fc53763495f38817be115744af57dd1efa7f
   }
