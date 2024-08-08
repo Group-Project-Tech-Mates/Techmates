@@ -1,29 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-
+import './Home.css';
+import Feed from './Feed';
+import CreatePost from './CreatePost';
 
 function Home() {
-  const [objects, setObjects] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/objects')
-      .then(response => setObjects(response.data))
-      .catch(error => console.error(error));
+    fetchPosts();
   }, []);
 
+  const fetchPosts = async () => {
+    try {
+      const response = await axios.get('http://localhost:5001/api/posts');
+      setPosts(response.data);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+  };
+
+  const handlePostCreated = (newPost) => {
+    setPosts([newPost, ...posts]);
+  };
+
   return (
-    <div>
-      <header>
-        
-        
-        <h1>TechMates</h1>
-      </header>
-      <ul>
-        {objects.map(object => (
-          <li key={object.id}>{object.name}</li>
-        ))}
-      </ul>
+    <div className="home-container">
+
+      <CreatePost onPostCreated={handlePostCreated} />
+      <div className="feed-container">
+        <Feed posts={posts} />
+      </div>
     </div>
   );
 }

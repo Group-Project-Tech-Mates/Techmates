@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Signup.css';
+import { useHistory } from 'react-router-dom'; // Import useHistory
 
 function SignUp() {
-  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [formData, setFormData] = useState({ username: '', password: '', email: '' });
+  const history = useHistory(); // Initialize useHistory
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -10,16 +13,22 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/api/signup', formData)
-      .then(response => console.log(response.data))
-      .catch(error => console.error(error));
+    axios.post('http://localhost:5001/api/signup', formData)
+      .then(response => {
+        alert('Sign-up successful!');
+        history.push('/'); // Redirect to home page
+      })
+      .catch(error => {
+        alert('Sign-up failed! ' + error.response.data);
+        console.error(error);
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Sign Up</h2>
-      <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Username" />
-      <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" />
+    <form onSubmit={handleSubmit} className="form">
+      <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Username" required />
+      <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" required />
+      <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" required />
       <button type="submit">Sign Up</button>
     </form>
   );

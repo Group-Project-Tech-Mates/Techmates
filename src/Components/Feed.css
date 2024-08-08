@@ -1,0 +1,31 @@
+/* Feed.css */
+.feed {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+
+.post {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-header h3 {
+  margin: 0;
+}
+
+.post-content p {
+  margin: 10px 0;
+}
+
+.post img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
