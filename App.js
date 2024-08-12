@@ -9,6 +9,12 @@ import SignIn from './Components/SignIn';
 import NavBar from './Components/NavBar';
 import Feed from './Components/Feed';
 import CreatePost from './Components/CreatePost';
+const postRoutes = require('./routes/Posts'); // Correct relative path to the routes file
+app.use(express.json()); // Middleware to parse JSON bodies
+app.use(postRoutes); // Use the post routes
+
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
 

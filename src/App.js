@@ -8,20 +8,23 @@ import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
 import About from './Components/About';
 import Navbar from './Components/Navbar';
+import { UserProvider } from './Components/UserContext'; // Import UserProvider
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <div className="container">
-          <Route exact path="/" component={Home} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/about" component={About} />
+    <UserProvider> 
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container">
+            <Route exact path="/" component={Home} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/about" component={About} />
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </UserProvider>
   );
 }
 

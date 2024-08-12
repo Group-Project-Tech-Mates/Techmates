@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Signup.css';
 import { useHistory } from 'react-router-dom';
+import UserContext from './UserContext';
+
 
 function SignUp() {
   const [formData, setFormData] = useState({ username: '', password: '', email: '' });
@@ -13,12 +15,10 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5001/api/signup', formData)
+    axios.post('mongodb+srv://kiona0908:8whYtBNjmVnx2CWd@cluster1techmates.otnvb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1techmates', formData)
       .then(response => {
         alert('Sign-up successful!');
         
-        // Optionally, save the user data in local storage or context
-        localStorage.setItem('user', JSON.stringify(response.data.user));
         
         // Redirect to home page
         history.push('/');

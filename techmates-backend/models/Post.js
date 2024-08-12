@@ -1,6 +1,7 @@
+// routes/post.js
 const express = require('express');
 const router = express.Router();
-const Post = require('../models/Post'); // Ensure the correct path to your model
+const Post = require('../models/Post'); // Import the Post model
 const User = require('../models/User'); // Import the User model to validate the user ID
 
 // Get all posts
@@ -10,7 +11,8 @@ router.get('/', async (req, res) => {
     const posts = await Post.find().populate('user', 'username email'); // Only include username and email
     res.json(posts);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error('Error fetching posts:', err.message);
+    res.status(500).json({ message: 'Server error while fetching posts' });
   }
 });
 
@@ -28,13 +30,14 @@ router.post('/', async (req, res) => {
     const post = new Post({
       user: existingUser._id, // Reference the user ID
       content,
-      image
+      image,
     });
 
     const newPost = await post.save();
     res.status(201).json(newPost);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    console.error('Error creating post:', err.message);
+    res.status(400).json({ message: 'Error creating post' });
   }
 });
 

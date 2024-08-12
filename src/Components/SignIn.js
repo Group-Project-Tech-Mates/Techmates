@@ -2,18 +2,30 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './Signin.css';
+import UserContext from './UserContext';
 
 function SignIn() {
-  const [formData, setFormData] = useState({ username: '', password: '' });
-  const history = useHistory(); // Initialize history
+  const { setUser } = useContext(UserContext);
 
+  const handleSignIn = async () => {
+    try {
+      const response = await axios.post('mongodb+srv://kiona0908:8whYtBNjmVnx2CWd@cluster1techmates.otnvb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1techmates', {
+        username: 'user',
+        password: 'password',
+      });
+      // Save user data to context
+      setUser(response.data.user);
+    } catch (error) {
+      console.error('Error during sign-in:', error.message);
+    }
+  };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5001/api/signin', formData)
+    axios.post('mongodb+srv://kiona0908:8whYtBNjmVnx2CWd@cluster1techmates.otnvb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1techmates', formData)
       .then(response => {
         console.log('Sign-in response:', response.data); // Debugging log
         if (response.data.user) {
