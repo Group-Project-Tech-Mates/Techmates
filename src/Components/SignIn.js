@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom'; 
 import axios from 'axios';
 import './Signin.css';
 
 function SignIn() {
   const [formData, setFormData] = useState({ username: '', password: '' });
+  const history = useHistory(); // Initialize history
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -13,13 +15,18 @@ function SignIn() {
     e.preventDefault();
     axios.post('http://localhost:5001/api/signin', formData)
       .then(response => {
-        console.log(response.data);
+        console.log('Sign-in response:', response.data); // Debugging log
         if (response.data.user) {
           alert('Sign in successful');
+          console.log('Redirecting to home...'); // Debugging log
+          history.push('/home'); // Use history.push to redirect to the home page
+        } else {
+          console.log('User data not found, not redirecting.'); // Debugging log
+          alert('Sign in failed');
         }
       })
       .catch(error => {
-        console.error(error);
+        console.error('Sign-in error:', error);
         alert('Sign in failed');
       });
   };
@@ -32,4 +39,5 @@ function SignIn() {
     </form>
   );
 }
+
 export default SignIn;
