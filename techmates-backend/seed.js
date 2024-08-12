@@ -2,14 +2,15 @@ const mongoose = require('mongoose');
 const Post = require('./models/Post'); // Correct path
 const User = require('./models/User'); // Correct path
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/techmates', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// // Connect to MongoDB
+// mongoose.connect('mongodb://localhost:27017/techmates', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 mongoose.connection.on('connected', async () => {
   console.log('MongoDB connected');
+
 
   // Clear existing data
   await Post.deleteMany({});

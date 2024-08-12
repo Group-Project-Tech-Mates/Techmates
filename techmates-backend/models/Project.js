@@ -1,5 +1,6 @@
 // techmates-backend/models/Project.js
 const mongoose = require('mongoose');
+const Project = require('../models/Project');
 
 const projectSchema = new mongoose.Schema({
   title: { type: String, required: true },

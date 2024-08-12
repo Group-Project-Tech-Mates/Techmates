@@ -2,7 +2,7 @@
 import React from 'react';
 import './App.css';
 import './styles.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
@@ -15,7 +15,7 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="container">
-          <Route path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route path="/signup" component={SignUp} />
           <Route path="/signin" component={SignIn} />
           <Route path="/about" component={About} />

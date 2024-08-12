@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Post = require('../models/Post'); // Ensure the correct path to your model
+const Post = require('../models/Post'); 
+const postController = require('../controllers/postController');
 
 // Get all posts
 router.get('/', async (req, res) => {
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Create a new post
+// Creating a new post
 router.post('/', async (req, res) => {
   const post = new Post({
     user: req.body.user,
